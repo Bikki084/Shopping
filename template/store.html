@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% block title %}Store{% endblock title %}
+{% block body %}
+    
+        <meta name="description" content="This is the description">
+        
+        
+        <header class="main-header">
+            
+            <h1 class="band-name band-name-large">The Band Store</h1>
+        </header>
+        <section class="container content-section">
+            <h2 class="section-header">MUSIC</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 1</span>
+                    <img class="shop-item-image" src="static/img/Album 1.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 600</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 2</span>
+                    <img class="shop-item-image" src="static/img/Album 2.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 650</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 3</span>
+                    <img class="shop-item-image" src="static/img/Album 3.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 450</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 4</span>
+                    <img class="shop-item-image" src="static/img/Album 4.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 1200</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container content-section">
+            <h2 class="section-header">MERCH</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">T-Shirt</span>
+                    <img class="shop-item-image" src="static/img/Shirt.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 1350</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Coffee Cup</span>
+                    <img class="shop-item-image" src="static/img/Cofee.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">Rs 450</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="static/img/Shirt.png" width="100" height="100">
+                        <span class="cart-item-title">T-Shirt</span>
+                    </div>
+                    <span class="cart-price cart-column">Rs 1350</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="static/img/Album 3.png" width="100" height="100">
+                        <span class="cart-item-title">Album 3</span>
+                    </div>
+                    <span class="cart-price cart-column">Rs 450</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="2">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">Rs 3000</span>
+            </div>
+            
+  <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+            
+        </section>
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="band-name">The RockOn</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="static/img/YouTube Logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.spotify.com" target="_blank">
+                            <img src="static/img/Spotify Logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="static/img/Facebook Logo.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script>
+            if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var shopItemButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < shopItemButtons.length; i++) {
+        shopItemButtons[i].addEventListener('click', addToCartClicked)
+    }
+
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        removeCartItemButtons[i].addEventListener('click', removeCartItem)
+    }
+
+    var cartQuantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < cartQuantityInputs.length; i++) {
+        cartQuantityInputs[i].addEventListener('change', quantityChanged)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function addToCartClicked(event) {
+    var shopItemContainer = event.target.parentElement.parentElement
+    var priceString = shopItemContainer.getElementsByClassName('shop-item-price')[0].innerText
+    var itemName = shopItemContainer.getElementsByClassName('shop-item-title')[0].innerText
+    var imageUrl = shopItemContainer.getElementsByClassName('shop-item-image')[0].src
+    addItemToCart(itemName, imageUrl, priceString)
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonElement = event.target
+    buttonElement.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var quantityInput = event.target
+    if (isNaN(quantityInput.value) || quantityInput.value <= 0) {
+        quantityInput.value = 1
+    }
+    updateCartTotal()
+}
+
+function purchaseClicked() {
+    alert('Thank you for your purchase!')
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    while(cartItemContainer.hasChildNodes()) {
+        cartItemContainer.removeChild(cartItemContainer.firstChild)
+    }
+    updateCartTotal()
+}
+
+function addItemToCart(itemName, imageUrl, priceString) {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItemContainer.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == itemName) {
+            alert('This item is already in your cart')
+            return
+        }
+    }
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    cartRow.innerHTML = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageUrl}" width="100" height="100">
+            <span class="cart-item-title">${itemName}</span>
+        </div>
+        <span class="cart-price cart-column">${priceString}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" min="1" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>
+    `
+    cartItemContainer.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartRows = document.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        if (priceElement == null || quantityElement == null) continue
+        var price = parseFloat(priceElement.innerText.replace('Rs', ''))
+        var quantity = parseInt(quantityElement.value)
+        total += price * quantity
+    }
+
+    document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs' + Math.round(total * 100) / 100
+}
+        </script>   
+   	{% endblock body %}
